@@ -1,1 +1,29 @@
-<p>problem-card works!</p>
+<mat-card class="problem-card">
+  <div class="problem">
+    <div class="description">
+      <a>
+        <p style="color: blueviolet" [routerLink]="['problem/' + (this.problem.id)]"> {{getTask()}}</p>
+      </a>
+    </div>
+    <div class="difficulty">
+      <p *ngIf="getDifficulty() == 'easy'" style="color: green"> Easy </p>
+      <p *ngIf="getDifficulty() == 'medium'" style="color: goldenrod"> Medium </p>
+      <p *ngIf="getDifficulty() == 'hard'" style="color: red"> Hard </p>
+    </div>
+    <div class="points">
+      <p> Points for completion: {{getPoints()}}</p>
+    </div>
+    <div class="status">
+      <p *ngIf="this.status == 2" style="color: green"> Answer accepted </p>
+      <p *ngIf="this.status == 1" style="color: goldenrod"> Attempted </p>
+      <p *ngIf="this.status == 0" style="color: red"> Not attempted </p>
+    </div>
+    <div *ngIf="route.url === '/favourites'" class="delete">
+      <button (click)="deleteFavourite(problem)" [matTooltip]="'delete from favourites'" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>
+
+

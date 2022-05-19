@@ -1,0 +1,38 @@
+.title {
+  padding-left: 40px;
+}
+
+.headers {
+  width: 100%;
+  display: inline-flex;
+  border: 2px solid #0044cc;
+}
+.h {
+  display: flex;
+}
+
+.desc-header {
+  padding-left: 70px;
+  padding-right: 30px;
+}
+
+.diff-header {
+  padding-left: 65px;
+  padding-right: 30px;
+}
+
+.point-header {
+  padding-left: 80px;
+  padding-right: 30px;
+}
+
+.status-header {
+  padding-left: 150px;
+}
+
+.rewards {
+  padding-left: 100px;
+}
+.text {
+  padding-left: 20px;
+}

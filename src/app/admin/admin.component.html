@@ -1,1 +1,54 @@
-<p>admin works!</p>
+
+<mat-card class="form">
+  <mat-card-header>
+    <h5> Add a problem</h5>
+    <br>
+  </mat-card-header>
+  <br>
+  <mat-form-field class="task" appearance="fill">
+    <mat-label>Enter Task </mat-label>
+    <input [(ngModel)]="task" matInput type="text">
+  </mat-form-field>
+  <br>
+  <!--Date Selector-->
+  <mat-form-field class="difficulty" appearance="fill">
+    <mat-label>Select Difficutlty</mat-label>
+    <mat-select [(value)]="difficulty">
+      <mat-option value="{{difficulties[0]}}">Easy</mat-option>
+      <mat-option value="{{difficulties[1]}}">Medium</mat-option>
+      <mat-option value="{{difficulties[2]}}">Hard</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="description" appearance="fill">
+    <mat-label>Enter Description in Latex format</mat-label>
+    <input [(ngModel)]="description" matInput type="text">
+  </mat-form-field>
+  <br>
+  <!--Calories Selector -->
+  <br>
+  <mat-form-field class="points" appearance="fill">
+    <mat-label>Enter Points reward</mat-label>
+    <input [(ngModel)]="points" matInput type="number">
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="answer" appearance="fill">
+    <mat-label>Enter the correct answer</mat-label>
+    <input [(ngModel)]="answer" matInput type="number">
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="hints" appearance="fill">
+    <mat-label>Enter Hints</mat-label>
+    <input [(ngModel)]="hints" matInput type="text">
+  </mat-form-field>
+  <br>
+
+  <mat-card-actions>
+    <button mat-stroked-button color="accent" [routerLink]="'/home'" (click)="saveProblem()" >Save</button>
+  </mat-card-actions>
+
+
+</mat-card>

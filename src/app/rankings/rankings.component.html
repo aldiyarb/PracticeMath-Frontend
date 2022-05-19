@@ -1,1 +1,3 @@
-<p>rankings works!</p>
+<table class="rankings">
+  <app-rank *ngFor="let user of users"  [user]="user" [rank]="users.indexOf(user)" ></app-rank>
+</table>

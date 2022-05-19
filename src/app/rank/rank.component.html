@@ -1,1 +1,16 @@
-<p>rank works!</p>
+<mat-card class = "rank-card">
+  <div class="rank">
+    <h4> {{rank + 1}} </h4>
+  </div>
+  <div class="avatar">
+    <app-avatar [matTooltip]="user.username" [user]="user"> </app-avatar>
+  </div>
+  <div class="points">
+    <p> Total Points: {{user.points}}</p>
+  </div>
+  <div class="rate">
+    <p> Success rate: {{successRate}}%</p>
+  </div>
+</mat-card>
+
+

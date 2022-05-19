@@ -1,0 +1,26 @@
+.activity{
+  width: 100%;
+}
+.task {
+  width: 100%;
+}
+.difficulty {
+  width: 100%;
+}
+.description {
+  width: 100%;
+}
+.points {
+  width: 100%;
+}
+.answer {
+  width: 100%;
+}
+.hints {
+  width: 100%;
+}
+.form {
+  width: 70%;
+  margin: auto;
+}
+

@@ -1,0 +1,24 @@
+.spacer {
+  flex: 1 auto;
+}
+.avatar {
+  padding-left: 20px;
+  padding-right: 50px;
+}
+
+.logout {
+  padding-right: 50px;
+}
+
+.coins {
+  padding-bottom: 0;
+}
+.rewards {
+  padding-right: 50px;
+}
+
+.text{
+  padding-left: 5px;
+}
+
+

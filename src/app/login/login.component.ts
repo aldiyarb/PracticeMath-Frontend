@@ -26,22 +26,18 @@ export class LoginComponent {
   ) {
     // redirect to home if already logged in
     if (this.authService.currentUserValue) {
-      //   this.router.navigate(['/']);
+        this.router.navigate(['home']);
     }
   }
 
 
 
 
-
+  /*
+    Authenticates the user by sending a POST request to the backend through authorization service
+   */
   login() {
     this.submitted = true;
-
-    // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-
     this.loading = true;
     console.log('username and password', this.username, this.password);
     this.loading = true;
@@ -49,9 +45,9 @@ export class LoginComponent {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
 
-          this.notif.showNotif(data, 'confirmation');
+          this.notif.showNotif('Logged in', 'confirmation');
         },
         error => {
           this.error = error;
@@ -61,10 +57,7 @@ export class LoginComponent {
           console.log('Error', error);
         });
   }
-  register() {
-    this.notif.showNotif('"Registration" is not implemented', 'error');
 
-  }
 
 }
 

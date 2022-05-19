@@ -3,18 +3,23 @@
   width: 70%;
   position: fixed;
   z-index: 1;
-  top: 0;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 50px;
+}
+.favourite {
+  padding-left: 30px;
 }
 .details {
   padding-left: 30px;
+  padding-right: 30px;
 }
 .description {
   padding-left: 30px;
+  padding-right: 30px;
 }
 .problem {
   padding-left: 30px;
+  padding-right: 30px;
 }
 .hint {
   padding-left: 30px;
@@ -44,4 +49,12 @@
 
 .example-full-width {
   width: 100%;
+}
+.results {
+}
+.right {
+  display: flex;
+}
+.submissions {
+  padding-top: 50px;
 }

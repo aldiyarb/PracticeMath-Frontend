@@ -1,12 +1,32 @@
+<h4 class="title"> Your Points</h4>
+<div class="rewards">
+  <img [matTooltip]="'You have ' + pts + ' coins'" class="coins" [src]="'assets/golden-dollar-coin-clipart-md.png'" style="width:50px; height:50px">
+  <div class="text" style="font-size: large">
+    {{pts}}
+  </div>
+
+</div>
+<h3 class="title"> Practice Problems </h3>
+<mat-card class="headers">
+  <div class="h">
+    <div class="desc-header">
+      <b> Description </b>
+    </div>
+    <div class="diff-header">
+      <b> Difficulty </b>
+    </div>
+    <div class="point-header">
+      <b> Points </b>
+    </div>
+    <div class="status-header">
+      <b> Status </b>
+    </div>
+  </div>
+</mat-card>
 <div class="pa-record-container">
 
-  <problem-component class="card-item" [problem]="problem" *ngFor="let parecord of parecords" ></problem-component>
+  <app-problem-card class="card-item" [problem]="problem" *ngFor="let problem of problems" ></app-problem-card>
 
 </div>
 
 
-<div class="fab-container">
-  <button mat-flat-button color="primary"  matTooltip="Add new class" (click)="addRandomActivity()">
-    <i class="material-icons">add</i>
-  </button>
-</div>

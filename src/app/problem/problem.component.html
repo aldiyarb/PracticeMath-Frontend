@@ -1,32 +1,41 @@
 <div class="split left">
+  <div class="favourite">
+    <button [matTooltip]="'Add to favourites'" mat-fab aria-label="Example icon button with a heart icon" color="accent" (click)="addToFavourites()">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </div>
   <div class ="description">
-    <h4 style="font-family: 'HVD Comic Serif Pro'">
-      Problem Description: Solve for x
-    </h4>
+    <p style="font-family: 'HVD Comic Serif Pro'">
+      Problem Description: {{getProblem().task}}
+    </p>
+  </div>
+  <div class = "details">
+    <p *ngIf="findDifficulty() == 'easy'" style="color: green; font-family: 'HVD Comic Serif Pro'"> Difficulty: Easy </p>
+    <p *ngIf="findDifficulty() == 'medium'" style="color: goldenrod; font-family: 'HVD Comic Serif Pro'">Difficulty: Medium </p>
+    <p *ngIf="findDifficulty() == 'hard'" style="color: red; font-family: 'HVD Comic Serif Pro'">Difficulty Hard </p>
+    <p style="font-family: 'HVD Comic Serif Pro';color: darkgoldenrod"> Reward: {{getProblem().points}} Points</p>
   </div>
   <br>
-  <div class = "details">
-    <p style="font-family: 'HVD Comic Serif Pro';color: green"> Easy </p>
-    <p style="font-family: 'HVD Comic Serif Pro';color: darkgoldenrod"> Reward: 1 Points</p>
-  </div>
+  <br>
   <div class = "problem">
-    <ng-katex [equation]="'x^3+13\ =\ 14'"></ng-katex>
+    <p style="font-family: 'HVD Comic Serif Pro'"> Solve: </p>
+    <ng-katex [equation]="getProblem().description"></ng-katex>
   </div>
   <br>
   <br>
   <div class="hint">
-    <p style="font-family: 'HVD Comic Serif Pro'; color: cornflowerblue"> Hints:</p>
+    <button mat-raised-button color="primary" style="font-family: 'HVD Comic Serif Pro'" (click)="showHintOnClick()">Show Hints</button>
   </div>
 
-  <div *ngIf="true" class="hints">
-    <p style="font-family: 'HVD Comic Serif Pro'"> Solving for x </p>
-    <br>
-    <ng-katex [equation]="'x+1\ =\ 10'"></ng-katex>
-    <br>
-    <ng-katex [equation]="'x\ =\ 10-1'"></ng-katex>
-    <br>
-    <ng-katex [equation]="'x\ =\ 9'"></ng-katex>
-    <br>
+  <div *ngIf="showHint == true" class="hints">
+    <p style="font-family: 'HVD Comic Serif Pro'"> {{getProblem().hints}}</p>
+<!--    <br>-->
+<!--    <ng-katex [equation]="'x+1\ =\ 10'"></ng-katex>-->
+<!--    <br>-->
+<!--    <ng-katex [equation]="'x\ =\ 10-1'"></ng-katex>-->
+<!--    <br>-->
+<!--    <ng-katex [equation]="'x\ =\ 9'"></ng-katex>-->
+<!--    <br>-->
   </div>
 </div>
 
@@ -36,9 +45,25 @@
     <p style="font-family: 'HVD Comic Serif Pro'"> Type your answer: </p>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label> Type your answer </mat-label>
-      <textarea matInput placeholder="The answer is:"></textarea>
+      <textarea matInput [disabled]="submitted" [(ngModel)]="inputAns" [ngModelOptions]="{standalone: true}" placeholder="The answer is:" ></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary">Submit</button>
+    <button [disabled]="!inputAns" *ngIf="submitted == false" mat-raised-button color="primary" (click)="submitOnClick()">Submit</button>
+    <div *ngIf="submitted == true" class="results">
+      <p *ngIf="correctAns == true" style="font-family: 'HVD Comic Serif Pro'; color: green"> Congratulations! The answer is correct </p>
+      <p *ngIf="pointsClaimed == true" style="font-family: 'HVD Comic Serif Pro'; color: green"> You already claimed points for this problem</p>
+      <p *ngIf="correctAns == false" style="font-family: 'HVD Comic Serif Pro'; color: red"> The answer is wrong. </p>
+      <button *ngIf="correctAns == true" mat-raised-button color="primary" [routerLink]="'/home'">Problems</button>
+      <button *ngIf="(correctAns == false && attempts != 0)" mat-raised-button color="warn" (click)="redoOnClick()"> Retry </button>
+      <button *ngIf="attempts == 0 && !submissions.includes(ansInt)" mat-raised-button color="warn" (click)="pay2Redo()"> Retry for 2 coins </button>
+    </div>
   </form>
+
+  <div class="submissions">
+    <p style="font-family: 'HVD Comic Serif Pro'"> Your submissions on this run:</p>
+    <mat-list *ngFor="let submission of submissions">
+      <mat-list-item *ngIf="submission == ansInt" style="font-family: 'HVD Comic Serif Pro'; color: green"> Submission # {{submissions.indexOf(submission) + 1}} : {{submission}} </mat-list-item>
+      <mat-list-item *ngIf="!(submission == ansInt)" style="font-family: 'HVD Comic Serif Pro'; color: red"> Submission # {{submissions.indexOf(submission) + 1}} :  {{submission}} </mat-list-item>
+    </mat-list>
+  </div>
 </div>
 

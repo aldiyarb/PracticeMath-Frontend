@@ -1,1 +1,21 @@
-<p>favourites works!</p>
+<h3 class="title"> Favourite Problems </h3>
+<mat-card class="headers">
+  <div class="h">
+    <div class="desc-header">
+      <b> Description </b>
+    </div>
+    <div class="diff-header">
+      <b> Difficulty </b>
+    </div>
+    <div class="point-header">
+      <b> Points </b>
+    </div>
+    <div class="status-header">
+      <b> Status </b>
+    </div>
+  </div>
+</mat-card>
+<div class="pa-record-container">
+
+  <app-problem-card class="card-item" [problem]="problem" (deleteEvent)="deleteFavourite($event)" *ngFor="let problem of favourites" ></app-problem-card>
+</div>
