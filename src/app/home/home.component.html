@@ -1,0 +1,12 @@
+<div class="pa-record-container">
+
+  <problem-component class="card-item" [problem]="problem" *ngFor="let parecord of parecords" ></problem-component>
+
+</div>
+
+
+<div class="fab-container">
+  <button mat-flat-button color="primary"  matTooltip="Add new class" (click)="addRandomActivity()">
+    <i class="material-icons">add</i>
+  </button>
+</div>

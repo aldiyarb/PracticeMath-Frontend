@@ -1,0 +1,44 @@
+<div class="split left">
+  <div class ="description">
+    <h4 style="font-family: 'HVD Comic Serif Pro'">
+      Problem Description: Solve for x
+    </h4>
+  </div>
+  <br>
+  <div class = "details">
+    <p style="font-family: 'HVD Comic Serif Pro';color: green"> Easy </p>
+    <p style="font-family: 'HVD Comic Serif Pro';color: darkgoldenrod"> Reward: 1 Points</p>
+  </div>
+  <div class = "problem">
+    <ng-katex [equation]="'x^3+13\ =\ 14'"></ng-katex>
+  </div>
+  <br>
+  <br>
+  <div class="hint">
+    <p style="font-family: 'HVD Comic Serif Pro'; color: cornflowerblue"> Hints:</p>
+  </div>
+
+  <div *ngIf="true" class="hints">
+    <p style="font-family: 'HVD Comic Serif Pro'"> Solving for x </p>
+    <br>
+    <ng-katex [equation]="'x+1\ =\ 10'"></ng-katex>
+    <br>
+    <ng-katex [equation]="'x\ =\ 10-1'"></ng-katex>
+    <br>
+    <ng-katex [equation]="'x\ =\ 9'"></ng-katex>
+    <br>
+  </div>
+</div>
+
+<div class="split right">
+
+  <form class="example-form">
+    <p style="font-family: 'HVD Comic Serif Pro'"> Type your answer: </p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label> Type your answer </mat-label>
+      <textarea matInput placeholder="The answer is:"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
+</div>
+

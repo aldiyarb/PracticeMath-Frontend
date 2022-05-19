@@ -1,0 +1,12 @@
+.login-card{
+  display: flex;
+  height: 1000px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("src/assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
